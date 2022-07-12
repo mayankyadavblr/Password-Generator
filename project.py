@@ -26,7 +26,8 @@ def composition(total_length):
     dictionary['letters']+=1
     dictionary['numbers']+=1
     dictionary['special']+=1
-
+    #print(dictionary)
+    return dictionary
 
 
 while True:
@@ -34,13 +35,20 @@ while True:
     password_len=int(input('What length password do you need::'))
     no_of_passwords=int(input('how many passwords do you need::'))
     for i in range(0,no_of_passwords):
+        dictionary1=composition(password_len)
+        #print(dictionary1)
         final_password=''
-        print(i)
+        print(i+1)
         #for j in range(0,password_len):
-        password=random.choices(characters,k=password_len)
-        for j in password:
+        password_letters=random.choices(characters_letters,k=dictionary1['letters'])
+        password_numbers=random.choices(characters_numbers,k=dictionary1['numbers'])
+        password_special=random.choices(characters_special,k=dictionary1['special'])
+        password=(password_letters+password_numbers+password_special)
+        random.shuffle(password)
+        #print(password)
+        for j in (password):
             final_password+=j
-        print('Here is your password::',final_password)
+        print('Here is your password::',(final_password))
     choice=input("Do you want to continue?\n(y/n)::")
     if choice=='n':
         break
