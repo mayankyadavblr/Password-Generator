@@ -23,7 +23,9 @@ def composition(total_length):
             dictionary['numbers']+=1
         elif choice1=='special':
             dictionary['special']+=1
-    
+    dictionary['letters']+=1
+    dictionary['numbers']+=1
+    dictionary['special']+=1
 
 
 
